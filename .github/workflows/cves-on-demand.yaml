@@ -1,9 +1,9 @@
-
 name: CVEs On Demand
 
 on:
   issues:
     types: [created, edited, labeled]
+    branch: main
 
 jobs:
   execute-cvedb-workflow:
