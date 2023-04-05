@@ -1,3 +1,4 @@
+
 name: CVEs On Demand
 
 on:
@@ -5,7 +6,7 @@ on:
     types: [created, edited, labeled]
 
 jobs:
-  execute-trickest-workflow:
+  execute-cvedb-workflow:
     if: ${{ github.event.label.name == 'On-Demand' }}
     runs-on: ubuntu-latest
     steps:
@@ -16,9 +17,9 @@ jobs:
     - name: Replace Variables
       run: |
         cat config-template.yaml | sed 's/$CVE/${{ github.event.issue.title }}/g' | sed 's/$ISSUE_ID/${{ github.event.issue.number }}/g' > config.yaml
-    - name: Trickest Execute
-      id: trickest
-      uses: CVEDB/action@main
+    - name: CVEDB Execute
+      id: cvedb
+      uses: cvedb/action@main
       env:
         CVEDB_TOKEN: "${{ secrets.CVEDB_TOKEN }}"
       with:
