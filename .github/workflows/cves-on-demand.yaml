@@ -2,7 +2,9 @@ name: CVEs On Demand
 
 on:
   push:
-
+  issues:
+    types: [created, edited, labeled]
+    
 jobs:
   execute-cvedb-workflow:
     if: ${{ github.event.label.name == 'On-Demand' }}
