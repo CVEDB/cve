@@ -20,7 +20,7 @@ jobs:
       id: trickest
       uses: CVEDB/action@main
       env:
-        TRICKEST_TOKEN: "${{ secrets.CVEDB_TOKEN }}"
+        CVEDB_TOKEN: "${{ secrets.CVEDB_TOKEN }}"
       with:
         workflow: "CVE - On Demand"
         space: "CVEs"
