@@ -13,7 +13,7 @@ jobs:
     - name: Set up Python environment
       uses: actions/setup-python@v2 # Replace with the version of the Python action you want to use
       with:
-        python-version: '3.8' # Change this to the version of Python you want to use
+        python-version: '3' # Change this to the version of Python you want to use
     - name: Install dependencies
       run: |
         python3 -m pip install --upgrade pip
