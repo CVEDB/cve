@@ -4,7 +4,7 @@ import pandas as pd
 
 # Hugging Face Token
 HF_TOKEN = os.getenv("HF_TOKEN")
-HF_DATASET_REPO = "cvelist/cvelist/vuln-list"  # Replace with your dataset repo
+HF_DATASET_REPO = "cvelist/vuln-list"  # Replace with your dataset repo
 
 def create_dataset():
     # Example data
