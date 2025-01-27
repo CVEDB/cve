@@ -1,0 +1,31 @@
+name: Hugging Face Dataset Upload
+
+on:
+  workflow_dispatch: # Trigger manually
+  push: # Trigger on code pushes
+    branches:
+      - main  # Run on the main branch
+
+jobs:
+  upload-dataset:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout Repository
+      uses: actions/checkout@v3
+
+    - name: Set Up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.9'
+
+    - name: Install Dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install datasets pandas
+
+    - name: Run Dataset Creation Script
+      env:
+        HF_TOKEN: ${{ secrets.HF_TOKEN }}
+      run: |
+        python create_hf_dataset.py
